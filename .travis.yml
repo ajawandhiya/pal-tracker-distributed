@@ -107,6 +107,8 @@ jobs:
     - stage: deploy
       name: allocations
       language: bash
+      before_install:
+        - chmod +x gradlew
       script:
         - echo "Downloading allocations server $RELEASE_TAG"
         - wget -P applications/allocations-server/build/libs https://github.com/$GITHUB_USERNAME/pal-tracker-distributed/releases/download/$RELEASE_TAG/allocations-server.jar
@@ -123,6 +125,8 @@ jobs:
     - stage: deploy
       name: backlog
       language: bash
+      before_install:
+        - chmod +x gradlew
       script:
         - echo "Downloading backlog server $RELEASE_TAG"
         - wget -P applications/backlog-server/build/libs https://github.com/$GITHUB_USERNAME/pal-tracker-distributed/releases/download/$RELEASE_TAG/backlog-server.jar
@@ -134,6 +138,8 @@ jobs:
     - stage: deploy
       name: registration
       language: bash
+      before_install:
+        - chmod +x gradlew
       script:
         - echo "Downloading registration server $RELEASE_TAG"
         - wget -P applications/registration-server/build/libs https://github.com/$GITHUB_USERNAME/pal-tracker-distributed/releases/download/$RELEASE_TAG/registration-server.jar
@@ -145,6 +151,8 @@ jobs:
     - stage: deploy
       name: timesheets
       language: bash
+      before_install:
+        - chmod +x gradlew
       script:
         - echo "Downloading timesheets server $RELEASE_TAG"
         - wget -P applications/timesheets-server/build/libs https://github.com/$GITHUB_USERNAME/pal-tracker-distributed/releases/download/$RELEASE_TAG/timesheets-server.jar
@@ -160,6 +168,8 @@ jobs:
         - echo "deb https://packages.cloudfoundry.org/debian stable main" | sudo tee /etc/apt/sources.list.d/cloudfoundry-cli.list
         - sudo apt-get update
         - sudo apt-get install cf-cli
+      before_install:
+        - chmod +x gradlew
       script:
         - cf login -a $CF_API_URL -u $CF_USERNAME -p $CF_PASSWORD -o $CF_ORG -s $CF_SPACE
         - ./gradlew cfMigrate

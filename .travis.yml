@@ -48,6 +48,8 @@ jobs:
       before_script:
         - mysql -uroot < databases/create_databases.sql
         - ./gradlew testMigrate
+      before_install:
+        - chmod +x gradlew
       script:
         - APPLICATION=backlog
         - ./gradlew clean :applications:${APPLICATION}-server:build
@@ -68,6 +70,8 @@ jobs:
       before_script:
         - mysql -uroot < databases/create_databases.sql
         - ./gradlew testMigrate
+      before_install:
+        - chmod +x gradlew
       script:
         - APPLICATION=registration
         - ./gradlew clean :applications:${APPLICATION}-server:build
@@ -88,6 +92,8 @@ jobs:
       before_script:
         - mysql -uroot < databases/create_databases.sql
         - ./gradlew testMigrate
+      before_install:
+        - chmod +x gradlew
       script:
         - APPLICATION=timesheets
         - ./gradlew clean :applications:${APPLICATION}-server:build

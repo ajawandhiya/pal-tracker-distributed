@@ -162,5 +162,5 @@ jobs:
       before_install:
         - chmod +x gradlew
       script:
-        - cf login -a https://api.run.pivotal.io -u abhishek.jawandhiya@cognizant.com -o uki-engineering -s AbhishekJawandhiya
+        - cf login -a API-URL -u USERNAME -p PASSWORD -o ORG -s SPACE
         - ./gradlew cfMigrate

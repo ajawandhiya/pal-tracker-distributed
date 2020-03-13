@@ -162,5 +162,5 @@ jobs:
       before_install:
         - chmod +x gradlew
       script:
-        - cf login -a API-URL -u USERNAME -p PASSWORD -o ORG -s SPACE
+        - cf login -a $CF_API_URL -u $CF_USERNAME -p $CF_PASSWORD -o $CF_ORG -s $CF_SPACE
         - ./gradlew cfMigrate

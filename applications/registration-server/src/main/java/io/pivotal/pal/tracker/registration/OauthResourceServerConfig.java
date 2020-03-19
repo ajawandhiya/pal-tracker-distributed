@@ -18,7 +18,7 @@ import org.springframework.web.client.RestOperations;
 public class OauthResourceServerConfig extends ResourceServerConfigurerAdapter {
 
 
-   @LoadBalanced
+   //@LoadBalanced
    @Bean
     public RestOperations restTemplate(OAuth2ProtectedResourceDetails resource, OAuth2ClientContext oauth2ClientContext) {
         return new OAuth2RestTemplate(resource, oauth2ClientContext);

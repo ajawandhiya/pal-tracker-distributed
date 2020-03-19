@@ -1,8 +1,6 @@
 package io.pivotal.pal.tracker.timesheets;
 
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
-//import org.springframework.cloud.client.loadbalancer.LoadBalanced;
-import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -18,7 +16,7 @@ import org.springframework.web.client.RestOperations;
 public class OauthResourceServerConfig extends ResourceServerConfigurerAdapter {
 
     @Bean
-   //@LoadBalanced
+
     public RestOperations restTemplate(OAuth2ProtectedResourceDetails resource, OAuth2ClientContext oauth2ClientContext) {
         return new OAuth2RestTemplate(resource, oauth2ClientContext);
     }
